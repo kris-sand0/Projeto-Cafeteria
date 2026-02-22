@@ -46,7 +46,7 @@ Para visualizar este projeto localmente, siga os passos abaixo:
 
 1.  **Clone o repositório** (se aplicável, ou baixe os arquivos):
     ```bash
-    git clone <URL_DO_REPOSITORIO>
+    git clone (https://github.com/kris-sand0/Projeto-Cafeteria.git)
     cd beans-and-brews-cafe
     ```
     (Nota: Como este é um projeto local, você pode simplesmente abrir o `index.html`.)
@@ -54,4 +54,5 @@ Para visualizar este projeto localmente, siga os passos abaixo:
 2.  **Abra o arquivo `index.html`** em seu navegador web preferido.
 
 O projeto é totalmente estático e não requer um servidor web ou dependências de Node.js para ser executado.
+
 
