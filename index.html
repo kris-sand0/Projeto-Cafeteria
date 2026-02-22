@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Aroma Supremo | Experiência Premium</title>
+    <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-organic">
+
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Aroma<span>Supremo</span></div>
+        <div class="nav-actions">
+            <button id="cart-btn" class="icon-btn focus-ring" aria-label="Abrir Carrinho">
+                <i class="ph ph-shopping-bag"></i>
+                <span class="cart-badge">0</span>
+            </button>
+            <button id="menu-btn" class="menu-toggle focus-ring" aria-label="Menu Mobile">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-nav-links">
+            <a href="#hero" class="nav-link">Início</a>
+            <a href="#menu" class="nav-link">Menu</a>
+            <a href="#experiencia" class="nav-link">Experiência</a>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="drawer">
+        <div class="drawer-header">
+            <h2>Seu Pedido</h2>
+            <button id="close-cart" class="icon-btn focus-ring"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="drawer-body">
+            <div id="cart-items" class="cart-items-container">
+                <!-- Items incjetados via JS -->
+                <p class="empty-cart-msg">Seu carrinho está vazio.</p>
+            </div>
+        </div>
+        <div class="drawer-footer">
+            <div class="subtotal">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button id="checkout-btn" class="btn btn-primary btn-block disable-on-empty">Finalizar Pedido</button>
+            <button id="whatsapp-btn" class="btn btn-outline btn-block disable-on-empty">
+                <i class="ph ph-whatsapp-logo"></i> Pedir pelo WhatsApp
+            </button>
+        </div>
+    </div>
+    <div class="drawer-backdrop"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="split-text">A Arte do <br><em>Verdadeiro</em> Café.</h1>
+                <p class="fade-up">Extração perfeita, grãos selecionados e um ambiente orgânico. Sinta a diferença em cada detalhe.</p>
+                <div class="hero-actions fade-up">
+                    <a href="#menu" class="btn btn-primary">Descobrir Menu</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-up">
+                <!-- Interative Canvas for Coffee Steam -->
+                <canvas id="coffee-steam"></canvas>
+                <div class="image-wrapper organic-shape">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Xícara de café premium">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu-section">
+            <header class="section-header fade-up">
+                <span class="eyebrow">Seleção</span>
+                <h2>Nosso Menu</h2>
+            </header>
+            
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <article class="menu-item fade-up">
+                    <div class="item-visual organic-shape-small">
+                        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=400&q=80" alt="Espresso Intenso">
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3>Espresso Intenso</h3>
+                            <span class="price">R$ 9,00</span>
+                        </div>
+                        <p>Notas de chocolate amargo e avelã torrada.</p>
+                        <button class="btn btn-sm btn-outline add-to-cart" data-id="1" data-name="Espresso Intenso" data-price="9.00">
+                            <i class="ph ph-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Item 2 -->
+                <article class="menu-item fade-up stagger-delay-1">
+                    <div class="item-visual organic-shape-small">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=400&q=80" alt="Cappuccino Cremoso">
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3>Cappuccino Cremoso</h3>
+                            <span class="price">R$ 14,00</span>
+                        </div>
+                        <p>Leite vaporizado sedoso e um toque de cacau.</p>
+                        <button class="btn btn-sm btn-outline add-to-cart" data-id="2" data-name="Cappuccino Cremoso" data-price="14.00">
+                            <i class="ph ph-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Item 3 -->
+                <article class="menu-item fade-up stagger-delay-2">
+                    <div class="item-visual organic-shape-small">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREbm2MsBtXMQUMgda6bux2LDVnFG9YSM6tpQ&s" alt="Mocha Especial">
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3>Mocha Especial</h3>
+                            <span class="price">R$ 18,00</span>
+                        </div>
+                        <p>Chocolate belga intenso fundido ao espresso perfeito.</p>
+                        <button class="btn btn-sm btn-outline add-to-cart" data-id="3" data-name="Mocha Especial" data-price="18.00">
+                            <i class="ph ph-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experiencia" class="experience-section">
+            <div class="experience-grid">
+                <div class="exp-text fade-up">
+                    <span class="eyebrow">Origem</span>
+                    <h2>A Arte do Encontro</h2>
+                    <p>No Café Aroma Supremo, não servimos apenas café. Desenhamos momentos. Cada grão é torrado localmente, extraído no tempo perfeito e servido em um ambiente que convida à pausa.</p>
+                </div>
+                <div class="exp-visual organic-shape fade-up stagger-delay-1">
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80" alt="Interior da Cafeteria">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content fade-up">
+            <div class="brand">
+                <h3>Aroma Supremo</h3>
+                <p>O café redefinido.</p>
+            </div>
+            <div class="info">
+                <p><i class="ph ph-map-pin"></i> Rua do Sol, 45 - Bairro Nobre</p>
+                <p><i class="ph ph-corners-out"></i> Seg-Dom | 07h às 20h</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aroma Supremo. Arte e Café.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
